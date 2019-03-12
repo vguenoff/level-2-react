@@ -1,21 +1,26 @@
-import { Component } from "react";
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class ToggleRPC extends Component {
-  state = {
-    on: false
-  };
+    static propTypes = {
+        children: PropTypes.func.isRequired,
+    };
 
-  toggle = () => {
-    this.setState(state => ({
-      on: !state.on
-    }));
-  };
+    state = {
+        on: false,
+    };
 
-  render() {
-    const { children } = this.props;
-    const { on } = this.state;
-    const { toggle } = this;
+    toggle = () => {
+        this.setState(state => ({
+            on: !state.on,
+        }));
+    };
 
-    return children({ on, toggle });
-  }
+    render() {
+        const { children } = this.props;
+        const { on } = this.state;
+        const { toggle } = this;
+
+        return children({ on, toggle });
+    }
 }

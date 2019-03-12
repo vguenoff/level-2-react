@@ -1,21 +1,26 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Toggle extends Component {
-  state = {
-    on: false
-  };
+    static propTypes = {
+        render: PropTypes.func.isRequired,
+    };
 
-  toggle = () => {
-    this.setState(state => ({
-      on: !state.on
-    }));
-  };
+    state = {
+        on: false,
+    };
 
-  render() {
-    const { render } = this.props;
-    const { on } = this.state;
-    const { toggle } = this;
+    toggle = () => {
+        this.setState(state => ({
+            on: !state.on,
+        }));
+    };
 
-    return <>{render({ on, toggle })}</>;
-  }
+    render() {
+        const { render } = this.props;
+        const { on } = this.state;
+        const { toggle } = this;
+
+        return <>{render({ on, toggle })}</>;
+    }
 }
