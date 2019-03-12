@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+import Toggle from "./Toggle";
+import ToggleRPC from "./ToggleRPC";
 
 class App extends Component {
   render() {
@@ -8,17 +11,22 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <Toggle
+            render={({ on, toggle }) => (
+              <>
+                {on && <h1>Hello Scott</h1>}
+                <button onClick={toggle}>Show/hide</button>
+              </>
+            )}
+          />
+          <ToggleRPC>
+            {({ on, toggle }) => (
+              <>
+                {on && <h1>Render Props Children</h1>}
+                <button onClick={toggle}>Show/hide</button>
+              </>
+            )}
+          </ToggleRPC>
         </header>
       </div>
     );
