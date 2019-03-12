@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Toggle from './Toggle';
-import ToggleRPC from './ToggleRPC';
+import Toggle from './components/Toggle';
+import ToggleRPC from './components/ToggleRPC';
 
 class App extends Component {
     render() {
